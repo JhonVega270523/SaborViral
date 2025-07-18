@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #FF6347; /* Tomate */
-    --secondary-color: #FFD700; /* Oro */
+    --primary-color: black; /* Tomate */
+    --secondary-color: #55ff00; /* Oro */
     --text-color: #333;
     --bg-color: #f4f4f4;
     --light-bg-color: #ffffff;
@@ -84,7 +84,7 @@ header p {
 }
 
 /* Ocultar el título de la categoría seleccionada al inicio */
-#category-selected-title {
+#current-menu-title {
     display: none;
 }
 
@@ -152,7 +152,7 @@ header p {
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 1em;
+    padding: 0.8em; /* REDUCIDO el padding para hacer la tarjeta más pequeña */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -177,23 +177,32 @@ header p {
 .menu-item h3 {
     color: var(--primary-color);
     margin-top: 0;
-    font-size: 1.8em;
-    margin-bottom: 0.5em;
+    font-size: 1.4em; /* REDUCIDO el tamaño de fuente del nombre */
+    margin-bottom: 0.2em; /* Reducido el margen inferior */
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
 
+/* Nuevo estilo para el subtítulo extraído del nombre */
+.product-subtitle {
+    font-style: italic;
+    color: #666; /* Mismo color que la frase principal */
+    font-size: 0.85em; /* Mismo tamaño que la frase principal */
+    margin-top: 0;
+    margin-bottom: 0.6em; /* Espacio después del subtítulo y antes del precio */
+}
+
 .menu-item .price {
-    font-size: 1.5em;
+    font-size: 1.2em; /* REDUCIDO el tamaño de fuente del precio */
     color: var(--secondary-color);
     font-weight: bold;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.6em; /* Ajuste menor */
 }
 
 .menu-item .phrase {
     font-style: italic;
     color: #666;
-    font-size: 0.95em;
+    font-size: 0.85em; /* Ligeramente reducido para adaptarse */
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -290,13 +299,14 @@ footer {
 }
 
 .scroll-to-top-btn:hover {
-    background-color: #e5533d;
+    background-color: #333;
     transform: translateY(-3px);
 }
 
-.back-button { /* Estilo para el nuevo botón de regresar */
+/* Estilo para los botones de regreso */
+.back-button {
     display: block;
-    margin: 40px auto 20px auto; /* Aumenta el margen superior e inferior */
+    margin: 15px auto; /* Espacio uniforme arriba y abajo */
     padding: 10px 20px;
     background-color: var(--primary-color);
     color: white;
@@ -305,17 +315,29 @@ footer {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    width: fit-content; /* Ajustar al contenido */
 }
 
 .back-button:hover {
-    background-color: #e5533d;
+    background-color: #333;
+}
+
+/* Contenedor para los botones de regreso, para centrar y manejar el espacio */
+.back-button-container {
+    text-align: center;
+    margin-top: 1em; /* Espacio entre el header y los botones */
+    margin-bottom: 2em; /* Espacio entre los botones y el contenido */
+    display: flex; /* Para centrar los botones si hay más de uno */
+    justify-content: center;
+    gap: 1em; /* Espacio entre botones si hay más de uno */
+    flex-wrap: wrap; /* Para que se envuelvan en pantallas pequeñas */
 }
 
 /* Responsive adjustments */
 @media (min-width: 992px) {
     .menu-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 1.5em;
+        gap: 1em; /* Ligeramente reducido el espacio entre productos en pantallas grandes */
     }
     /* Asegura que las tarjetas de categoría se vean bien en pantallas grandes */
     #category-cards {
@@ -329,12 +351,22 @@ footer {
     }
 
     .menu-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Ajuste de productos para pantallas más pequeñas */
-        gap: 1em;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ajuste de productos para pantallas más pequeñas */
+        gap: 0.8em; /* Reducido el espacio para tabletas */
     }
 
     .menu-item, .category-card { /* Aplicar a ambos */
-        padding: 0.8em;
+        padding: 0.6em; /* REDUCIDO el padding para tabletas */
+    }
+    .menu-item h3 {
+        font-size: 1.2em; /* Ajuste para el nombre de producto en tabletas */
+    }
+    /* El subtítulo y la frase ahora comparten el mismo ajuste */
+    .product-subtitle, .menu-item .phrase {
+        font-size: 0.8em; /* Ajuste para la frase en tabletas */
+    }
+    .menu-item .price {
+        font-size: 1.1em; /* Ajuste para el precio de producto en tabletas */
     }
     .category-card { /* Ajuste para tabletas */
         width: 140px;
@@ -386,6 +418,11 @@ footer {
         bottom: 20px;
         right: 20px;
     }
+
+    .back-button-container {
+        margin-top: 1em; /* Ajuste para pantallas pequeñas */
+        margin-bottom: 1.5em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -400,11 +437,21 @@ footer {
 
     .menu-grid {
         grid-template-columns: 1fr;
-        gap: 1em;
+        gap: 0.7em; /* Reducido aún más el espacio para móviles */
     }
 
     .menu-item, .category-card { /* Aplicar a ambos */
-        padding: 0.7em;
+        padding: 0.5em; /* REDUCIDO el padding para móviles */
+    }
+    .menu-item h3 {
+        font-size: 1.1em; /* Ajuste para el nombre de producto en móviles */
+    }
+    /* El subtítulo y la frase ahora comparten el mismo ajuste */
+    .product-subtitle, .menu-item .phrase {
+        font-size: 0.75em; /* Ajuste para la frase en móviles */
+    }
+    .menu-item .price {
+        font-size: 1em; /* Ajuste para el precio de producto en móviles */
     }
     .category-card { /* Ajuste para móviles pequeños */
         width: 130px; /* Aún más pequeño */
