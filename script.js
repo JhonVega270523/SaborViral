@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Butifarra",
             price: "$700",
-            phrase: "2 x $2000",
+            phrase: "3 x $2000",
             category: "comidas-rapidas",
             iconClass: "fas fa-utensils" // Icono genérico de comida
         },{
