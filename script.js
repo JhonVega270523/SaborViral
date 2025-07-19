@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const products = [
         {
+            name: "Butifarra",
+            price: "$700",
+            phrase: "2 x $2000",
+            category: "comidas-rapidas",
+            iconClass: "fas fa-utensils" // Icono genérico de comida
+        },{
             name: "Salchipapa",
             price: "$6.000",
             phrase: "La combinación perfecta de salchicha y papa.",
