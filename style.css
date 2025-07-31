@@ -1,0 +1,540 @@
+:root {
+    --primary-color: black; /* Tomate */
+    --secondary-color: #55ff00; /* Oro */
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --light-bg-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: auto;
+}
+
+.header-logo {
+    max-width: 100%;
+    height: auto;
+    width: 240px;
+    height: 240px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0 1em;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
+}
+
+/* Ocultar los productos inicialmente */
+#menu-items {
+    display: none; /* Oculta el contenedor de productos al inicio */
+}
+
+/* Ocultar el título de la categoría seleccionada al inicio */
+#current-menu-title {
+    display: none;
+}
+
+/* Centrar las tarjetas de categoría */
+#category-cards {
+    display: flex; /* Cambiado a flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en líneas nuevas */
+    gap: 1em; /* Reducido el espacio entre tarjetas */
+}
+
+/* Estilo para las tarjetas de categoría (reusa muchos estilos de menu-item) */
+.category-card {
+    background-color: var(--light-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.8em; /* Reducido el padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Centrar el contenido verticalmente si es necesario */
+    cursor: pointer; /* Indica que es clicable */
+    width: 150px; /* **MUCHO MÁS PEQUEÑO** */
+    height: 180px; /* **MUCHO MÁS PEQUEÑO** */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor para los iconos dentro de la tarjeta de categoría */
+.category-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Ajustado para los iconos más pequeños */
+    margin-bottom: 0.5em; /* Reducido el margen */
+    width: 100%;
+}
+
+.category-icon-wrapper .fas {
+    color: var(--primary-color); /* Color del icono, puedes ajustarlo */
+    font-size: 2.5em; /* **TAMAÑO DE ICONO MÁS PEQUEÑO** */
+    margin: 0 3px; /* Espacio entre iconos si hay más de uno */
+    transition: transform 0.3s ease; /* Suaviza la transición */
+}
+
+.category-card:hover .category-icon-wrapper .fas {
+    transform: scale(1.1) rotate(5deg); /* Escala ligeramente y rota al pasar el ratón */
+}
+
+.category-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.2em; /* **TAMAÑO DE FUENTE MÁS PEQUEÑO** */
+    margin-bottom: 0.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+/* Estilo para los elementos del menú (productos individuales) */
+.menu-item {
+    background-color: var(--light-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.8em; /* REDUCIDO el padding para hacer la tarjeta más pequeña */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Comentado para eliminar las imágenes de los productos */
+/*
+.menu-item img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+*/
+
+.menu-item h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.4em; /* REDUCIDO el tamaño de fuente del nombre */
+    margin-bottom: 0.2em; /* Reducido el margen inferior */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+/* Nuevo estilo para el subtítulo extraído del nombre */
+.product-subtitle {
+    font-style: italic;
+    color: #666; /* Mismo color que la frase principal */
+    font-size: 0.85em; /* Mismo tamaño que la frase principal */
+    margin-top: 0;
+    margin-bottom: 0.6em; /* Espacio después del subtítulo y antes del precio */
+}
+
+.menu-item .price {
+    font-size: 1.2em; /* REDUCIDO el tamaño de fuente del precio */
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 0.6em; /* Ajuste menor */
+}
+
+.menu-item .phrase {
+    font-style: italic;
+    color: #666;
+    font-size: 0.85em; /* Ligeramente reducido para adaptarse */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info {
+    background-color: var(--light-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    padding: 2em;
+    margin-top: 3em;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 0;
+}
+
+.contact-details {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding-right: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.contact-details h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: 700;
+    position: relative; /* Necesario para la animación */
+    overflow: hidden; /* Oculta la parte que se desborda, si aplica */
+    animation: bounceText 2s infinite ease-in-out alternate; /* Animación para el título */
+    padding-bottom: 0; /* Asegura que no tenga padding inferior para la barra */
+}
+
+.contact-details p {
+    margin: 0.8em 0;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.map-container {
+    flex: 1.5;
+    min-width: 300px;
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1.5em 0;
+    margin-top: 3em;
+    box-shadow: 0 -4px 8px var(--shadow-color);
+}
+
+.scroll-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #333;
+    transform: translateY(-3px);
+}
+
+/* Estilo para los botones de regreso */
+.back-button {
+    display: block;
+    margin: 15px auto; /* Espacio uniforme arriba y abajo */
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: fit-content; /* Ajustar al contenido */
+}
+
+.back-button:hover {
+    background-color: #333;
+}
+
+/* Contenedor para los botones de regreso, para centrar y manejar el espacio */
+.back-button-container {
+    text-align: center;
+    margin-top: 1em; /* Espacio entre el header y los botones */
+    margin-bottom: 2em; /* Espacio entre los botones y el contenido */
+    display: flex; /* Para centrar los botones si hay más de uno */
+    justify-content: center;
+    gap: 1em; /* Espacio entre botones si hay más de uno */
+    flex-wrap: wrap; /* Para que se envuelvan en pantallas pequeñas */
+}
+
+/* --- ANIMACIONES ADICIONALES --- */
+
+/* Barras de Carga Animadas Debajo de los Títulos */
+/* Aplica a .section-title y #current-menu-title */
+.section-title,
+#current-menu-title {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    overflow: hidden; /* Oculta la parte de la barra que se desborda */
+    padding-bottom: 5px; /* Espacio para la barra */
+}
+
+.section-title::after,
+#current-menu-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Asegura que esté en la parte inferior del padding-bottom */
+    left: 0; /* Ocupará el 100% del ancho del padre */
+    width: 100%; /* La barra en sí tiene el 100% del ancho del título padre */
+    height: 2px; /* Altura de la barra */
+    background-color: var(--primary-color); /* Color de la barra (negro) */
+    transform: scaleX(0); /* Inicialmente invisible (ancho 0) */
+    transform-origin: center; /* **La transformación se origina desde el centro** */
+    animation: fillAndEmptyBar 1.5s ease-in-out infinite alternate; /* Animación más rápida */
+}
+
+@keyframes fillAndEmptyBar {
+    0% {
+        transform: scaleX(0); /* Barra vacía (se encoge al centro) */
+    }
+    100% {
+        transform: scaleX(1); /* Barra llena (se expande desde el centro) */
+    }
+}
+
+/* Animación para el texto "¡Encuéntranos!" */
+.contact-details h2 {
+    animation: bounceText 2s infinite ease-in-out alternate; /* Solo animación de movimiento */
+    padding-bottom: 0; /* Asegura que no tenga padding inferior ni barra */
+    overflow: visible; /* Asegura que el contenido no se corte si el bounce excede el área */
+}
+
+@keyframes bounceText {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Sube 10px a la mitad de la animación */
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 992px) {
+    .menu-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1em; /* Ligeramente reducido el espacio entre productos en pantallas grandes */
+    }
+    /* Asegura que las tarjetas de categoría se vean bien en pantallas grandes */
+    #category-cards {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Mínimo 150px para el ajuste */
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Ajuste de productos para pantallas más pequeñas */
+        gap: 0.8em; /* Reducido el espacio para tabletas */
+    }
+
+    .menu-item, .category-card { /* Aplicar a ambos */
+        padding: 0.6em; /* REDUCIDO el padding para tabletas */
+    }
+    .menu-item h3 {
+        font-size: 1.2em; /* Ajuste para el nombre de producto en tabletas */
+    }
+    /* El subtítulo y la frase ahora comparten el mismo ajuste */
+    .product-subtitle, .menu-item .phrase {
+        font-size: 0.8em; /* Ajuste para la frase en tabletas */
+    }
+    .menu-item .price {
+        font-size: 1.1em; /* Ajuste para el precio de producto en tabletas */
+    }
+    .category-card { /* Ajuste para tabletas */
+        width: 140px;
+        height: 170px;
+    }
+    .category-card h3 { /* Ajuste para el nombre de categoría en tabletas */
+        font-size: 1.1em;
+    }
+    .category-icon-wrapper {
+        height: 90px;
+    }
+    .category-icon-wrapper .fas {
+        font-size: 2.2em;
+    }
+
+    .header-content {
+        min-height: auto;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+    }
+
+    .contact-details, .map-container {
+        min-width: unset;
+        width: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .contact-details h2 {
+        text-align: center;
+    }
+
+    .contact-details p {
+        text-align: center;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+
+    .scroll-to-top-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .back-button-container {
+        margin-top: 1em; /* Ajuste para pantallas pequeñas */
+        margin-bottom: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .container {
+        margin: 1em auto;
+        padding: 0 0.8em;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 0.7em; /* Reducido aún más el espacio para móviles */
+    }
+
+    .menu-item, .category-card { /* Aplicar a ambos */
+        padding: 0.5em; /* REDUCIDO el padding para móviles */
+    }
+    .menu-item h3 {
+        font-size: 1.1em; /* Ajuste para el nombre de producto en móviles */
+    }
+    /* El subtítulo y la frase ahora comparten el mismo ajuste */
+    .product-subtitle, .menu-item .phrase {
+        font-size: 0.75em; /* Ajuste para la frase en móviles */
+    }
+    .menu-item .price {
+        font-size: 1em; /* Ajuste para el precio de producto en móviles */
+    }
+    .category-card { /* Ajuste para móviles pequeños */
+        width: 130px; /* Aún más pequeño */
+        height: 160px;
+    }
+    .category-card h3 {
+        font-size: 1em;
+    }
+    .category-icon-wrapper {
+        height: 80px;
+    }
+    .category-icon-wrapper .fas {
+        font-size: 2em;
+    }
+
+    .header-content {
+        min-height: auto;
+    }
+
+    .scroll-to-top-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+        bottom: 15px;
+        right: 15px;
+    }
+}
