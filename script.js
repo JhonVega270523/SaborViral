@@ -445,7 +445,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainSectionTitle = document.querySelector('.section-title');
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     const whatsappBtn = document.getElementById('whatsappBtn');
-    const homeBtn = document.getElementById('homeBtn');
     const adicionesButtonContainer = document.getElementById('adiciones-button-container');
     const showAdicionesBtn = document.getElementById('show-adiciones-btn');
     const headerElement = document.querySelector('header'); // Referencia al header
@@ -668,14 +667,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Funcionalidad del botón de Home
-    homeBtn.addEventListener('click', function() {
-        showCategories();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    // Funcionalidad del botón de Home (eliminada ya que no existe en el HTML)
 
     // Funcionalidad del botón de WhatsApp
     whatsappBtn.addEventListener('click', function() {
