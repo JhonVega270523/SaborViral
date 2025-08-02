@@ -15,6 +15,8 @@
         </div>
     </header>
 
+
+
     <div class="container">
         <h2 class="section-title">Nuestras Categorías</h2>
         <div id="category-cards" class="menu-grid">
@@ -49,9 +51,88 @@
         <p>📱 WhatsApp: <a href="https://wa.me/573003024889" target="_blank"> +57 300 302 4889</a></p>
     </footer>
 
-    <div id="scrollToTopBtn" class="scroll-to-top-btn">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+            <div class="floating-buttons">
+            <div id="scrollToTopBtn" class="scroll-to-top-btn">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            <div id="whatsappBtn" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+        </div>
+
+    <script>
+        // Protecciones contra inspección de código
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', function(e) {
+            // Bloquear Ctrl+Shift+I (Inspeccionar elemento)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquear Ctrl+Shift+C (Inspeccionar elemento)
+            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquear Ctrl+U (Ver código fuente)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquear F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            // Bloquear Ctrl+Shift+J (Consola)
+            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Bloquear DevTools (versión mejorada)
+        function detectDevTools() {
+            // Solo verificar si las dimensiones son significativamente diferentes
+            const widthDiff = window.outerWidth - window.innerWidth;
+            const heightDiff = window.outerHeight - window.innerHeight;
+            
+            // Umbral más alto para evitar falsos positivos
+            const threshold = 200;
+            
+            // Solo bloquear si hay una diferencia muy grande (indicando DevTools abierto)
+            if (widthDiff > threshold || heightDiff > threshold) {
+                // Verificar múltiples veces antes de bloquear
+                setTimeout(() => {
+                    const newWidthDiff = window.outerWidth - window.innerWidth;
+                    const newHeightDiff = window.outerHeight - window.innerHeight;
+                    
+                    if (newWidthDiff > threshold || newHeightDiff > threshold) {
+                        document.body.innerHTML = 'Acceso no autorizado';
+                    }
+                }, 500);
+            }
+        }
+
+        // Verificar cada 2 segundos en lugar de cada 100ms
+        setInterval(detectDevTools, 2000);
+
+        // Bloquear selección de texto
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // Bloquear arrastrar elementos
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>

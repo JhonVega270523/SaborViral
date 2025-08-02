@@ -1,12 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const products = [
-        {
-            name: "Butifarra",
-            price: "$700",
-            phrase: "3 x $2000",
-            category: "comidas-rapidas",
-            iconClass: "fas fa-utensils" // Icono genérico de comida
-        },
+        // PAPAS
         {
             name: "Salchipapa",
             price: "$6.000",
@@ -16,15 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: "Longuipapa",
-            price: "$10.000",
-            phrase: "Deliciosa longaniza con papas.",
+            price: "$10.500",
+            phrase: "Longaniza con papas, un sabor único.",
             category: "comidas-rapidas",
             iconClass: "fas fa-utensils" // Icono genérico de comida
         },
         {
             name: "Choripapa",
-            price: "$9.500",
-            phrase: "Chorizo y papas, un clásico irresistible.",
+            price: "$10.500",
+            phrase: "Chorizo con papas, irresistible combinación.",
             category: "comidas-rapidas",
             iconClass: "fas fa-utensils" // Icono genérico de comida
         },
@@ -42,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "comidas-rapidas",
             iconClass: "fas fa-bowl-food" // Icono de tazón de comida (FA6) o fa-utensils (FA5)
         },
+
+        // HAMBURGUESAS
         {
             name: "Hamburguesa Sencilla",
             price: "$9.000",
@@ -56,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "comidas-rapidas",
             iconClass: "fas fa-hamburger" // Icono de hamburguesa
         },
+
+        // AREPAS
         {
             name: "Arepa Con Carne Desmechada Sencilla",
             price: "$7.000",
@@ -70,6 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "comidas-rapidas",
             iconClass: "fas fa-bread-slice" // Icono de rebanada de pan (para arepa)
         },
+
+        // CARNES A LA PLANCHA
         {
             name: "Carne A La Plancha De Res (Carne, Papas Y Arepa Con Queso)",
             price: "$22.000",
@@ -98,43 +98,68 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "comidas-rapidas",
             iconClass: "fas fa-shish-kebab" // Icono de shish kebab (FA6) o fa-utensils (FA5)
         },
+
+        // PICADAS
         {
             name: "Picada (Papas A La Francesa, Carne Desmechada, Carne De Hamburguesa, Chorizo, Arepa Con Lonchita Y Huevo De Codorniz)",
-            price: "$22.000",
+            price: "$23.000",
             phrase: "La picada más completa para compartir.",
             category: "comidas-rapidas",
             iconClass: "fas fa-plate-utensils" // Icono de plato con utensilios (FA6) o fa-utensils (FA5)
         },
-        // Productos de Jugos Tradicionales
         {
-            name: "Mandarina",
-            priceAgua: "$6.000 (Agua)",
-            priceLeche: "$7.000 (Leche)",
-            phrase: "El toque cítrico y refrescante.",
-            category: "jugos",
-            subcategory: "jugos-tradicionales"
+            name: "Picada para dos",
+            price: "$34.000",
+            phrase: "Perfecta para compartir en pareja.",
+            category: "comidas-rapidas",
+            iconClass: "fas fa-plate-utensils"
         },
         {
-            name: "Maracuyá",
-            priceAgua: "$6.000 (Agua)",
-            priceLeche: "$7.000 (Leche)",
-            phrase: "Exótico y vibrante, ideal para refrescar.",
-            category: "jugos",
-            subcategory: "jugos-tradicionales"
+            name: "Picada Familiar",
+            price: "$53.000",
+            phrase: "La picada ideal para toda la familia.",
+            category: "comidas-rapidas",
+            iconClass: "fas fa-plate-utensils"
+        },
+
+        // SANDWICHES
+        {
+            name: "Sandwich Tradicional",
+            price: "$3.000",
+            phrase: "El clásico sandwich que nunca falla.",
+            category: "comidas-rapidas",
+            iconClass: "fas fa-sandwich"
         },
         {
-            name: "Mango",
-            priceAgua: "$6.000 (Agua)",
-            priceLeche: "$7.000 (Leche)",
-            phrase: "Dulce y tropical, un clásico irresistible.",
-            category: "jugos",
-            subcategory: "jugos-tradicionales"
+            name: "Sandwich de Pollo",
+            price: "$6.000",
+            phrase: "Delicioso sandwich con pollo fresco.",
+            category: "comidas-rapidas",
+            iconClass: "fas fa-sandwich"
+        },
+
+        // OTROS
+        {
+            name: "Butifarra",
+            price: "$700",
+            phrase: "3 x $2000",
+            category: "comidas-rapidas",
+            iconClass: "fas fa-utensils" // Icono genérico de comida
         },
         {
-            name: "Mora",
+            name: "Panzerotti",
+            price: "$3.500",
+            phrase: "Delicioso panzerotti relleno.",
+            category: "comidas-rapidas",
+            iconClass: "fas fa-pizza-slice"
+        },
+
+        // JUGOS TRADICIONALES
+        {
+            name: "Borojó",
             priceAgua: "$6.000 (Agua)",
             priceLeche: "$7.000 (Leche)",
-            phrase: "El sabor intenso y natural del bosque.",
+            phrase: "Conocido por su energía y sabor único.",
             category: "jugos",
             subcategory: "jugos-tradicionales"
         },
@@ -147,14 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
             subcategory: "jugos-tradicionales"
         },
         {
-            name: "Lulo",
-            priceAgua: "$6.000 (Agua)",
-            priceLeche: "$7.000 (Leche)",
-            phrase: "Un sabor único y ligeramente ácido, muy colombiano.",
-            category: "jugos",
-            subcategory: "jugos-tradicionales"
-        },
-        {
             name: "Guanábana",
             priceAgua: "$6.000 (Agua)",
             priceLeche: "$7.000 (Leche)",
@@ -163,18 +180,58 @@ document.addEventListener('DOMContentLoaded', function() {
             subcategory: "jugos-tradicionales"
         },
         {
-            name: "Piña",
-            priceAgua: "$6.000 (Agua)",
-            priceLeche: "$7.000 (Leche)",
-            phrase: "Refrescante y dulce, perfecto para cualquier momento.",
-            category: "jugos",
-            subcategory: "jugos-tradicionales"
-        },
-        {
             name: "Guayaba",
             priceAgua: "$6.000 (Agua)",
             priceLeche: "$7.000 (Leche)",
             phrase: "El sabor auténtico de la fruta tropical.",
+            category: "jugos",
+            subcategory: "jugos-tradicionales"
+        },
+        {
+            name: "Lulo",
+            priceAgua: "$6.000 (Agua)",
+            priceLeche: "$7.000 (Leche)",
+            phrase: "Un sabor único y ligeramente ácido, muy colombiano.",
+            category: "jugos",
+            subcategory: "jugos-tradicionales"
+        },
+        {
+            name: "Mandarina",
+            priceAgua: "$6.000 (Agua)",
+            priceLeche: "$7.000 (Leche)",
+            phrase: "El toque cítrico y refrescante.",
+            category: "jugos",
+            subcategory: "jugos-tradicionales"
+        },
+        {
+            name: "Mango",
+            priceAgua: "$6.000 (Agua)",
+            priceLeche: "$7.000 (Leche)",
+            phrase: "Dulce y tropical, un clásico irresistible.",
+            category: "jugos",
+            subcategory: "jugos-tradicionales"
+        },
+        {
+            name: "Maracuyá",
+            priceAgua: "$6.000 (Agua)",
+            priceLeche: "$7.000 (Leche)",
+            phrase: "Exótico y vibrante, ideal para refrescar.",
+            category: "jugos",
+            subcategory: "jugos-tradicionales"
+        },
+        {
+            name: "Mora",
+            priceAgua: "$6.000 (Agua)",
+            priceLeche: "$7.000 (Leche)",
+            phrase: "El sabor intenso y natural del bosque.",
+            category: "jugos",
+            subcategory: "jugos-tradicionales"
+        },
+        {
+            name: "Piña",
+            priceAgua: "$6.000 (Agua)",
+            priceLeche: "$7.000 (Leche)",
+            phrase: "Refrescante y dulce, perfecto para cualquier momento.",
             category: "jugos",
             subcategory: "jugos-tradicionales"
         },
@@ -194,20 +251,13 @@ document.addEventListener('DOMContentLoaded', function() {
             category: "jugos",
             subcategory: "jugos-tradicionales"
         },
+
+        // JUGOS COMBINADOS
         {
-            name: "Borojó",
-            priceAgua: "$6.000 (Agua)",
-            priceLeche: "$7.000 (Leche)",
-            phrase: "Conocido por su energía y sabor único.",
-            category: "jugos",
-            subcategory: "jugos-tradicionales"
-        },
-        // Productos de Combinaciones
-        {
-            name: "Frutos Rojos (Mora | Fresa | Uva | Cereza)",
+            name: "Exótico (Mango | Fresa | Piña)",
             priceAgua: "$8.000 (Agua)",
             priceLeche: "$9.000 (Leche)",
-            phrase: "Una explosión de sabor y antioxidantes.",
+            phrase: "Una mezcla sorprendente y deliciosa.",
             category: "jugos",
             subcategory: "combinaciones"
         },
@@ -220,34 +270,10 @@ document.addEventListener('DOMContentLoaded', function() {
             subcategory: "combinaciones"
         },
         {
-            name: "Exótico (Mango | Fresa | Piña)",
+            name: "Frutos Rojos (Mora | Fresa | Uva | Cereza)",
             priceAgua: "$8.000 (Agua)",
             priceLeche: "$9.000 (Leche)",
-            phrase: "Una mezcla sorprendente y deliciosa.",
-            category: "jugos",
-            subcategory: "combinaciones"
-        },
-        {
-            name: "Piña-Yerbabuena",
-            priceAgua: "$8.000 (Agua)",
-            priceLeche: "$9.000 (Leche)",
-            phrase: "Refrescante y digestivo, ideal para cualquier momento.",
-            category: "jugos",
-            subcategory: "combinaciones"
-        },
-        {
-            name: "Piña-Coco",
-            priceAgua: "$8.000 (Agua)",
-            priceLeche: "$9.000 (Leche)",
-            phrase: "El sabor del caribe en tu paladar.",
-            category: "jugos",
-            subcategory: "combinaciones"
-        },
-        {
-            name: "Mango-Fresa",
-            priceAgua: "$8.000 (Agua)",
-            priceLeche: "$9.000 (Leche)",
-            phrase: "La combinación perfecta de dulzura y frescura.",
+            phrase: "Una explosión de sabor y antioxidantes.",
             category: "jugos",
             subcategory: "combinaciones"
         },
@@ -260,10 +286,18 @@ document.addEventListener('DOMContentLoaded', function() {
             subcategory: "combinaciones"
         },
         {
-            name: "Maracuyá-Mango",
+            name: "Mango-Fresa",
             priceAgua: "$8.000 (Agua)",
             priceLeche: "$9.000 (Leche)",
-            phrase: "La fusión tropical que te encantará.",
+            phrase: "La combinación perfecta de dulzura y frescura.",
+            category: "jugos",
+            subcategory: "combinaciones"
+        },
+        {
+            name: "Maracuyá-Coco",
+            priceAgua: "$8.000 (Agua)",
+            priceLeche: "$9.000 (Leche)",
+            phrase: "El equilibrio perfecto entre lo ácido y lo cremoso.",
             category: "jugos",
             subcategory: "combinaciones"
         },
@@ -276,14 +310,31 @@ document.addEventListener('DOMContentLoaded', function() {
             subcategory: "combinaciones"
         },
         {
-            name: "Maracuyá-Coco",
+            name: "Maracuyá-Mango",
             priceAgua: "$8.000 (Agua)",
             priceLeche: "$9.000 (Leche)",
-            phrase: "El equilibrio perfecto entre lo ácido y lo cremoso.",
+            phrase: "La fusión tropical que te encantará.",
             category: "jugos",
             subcategory: "combinaciones"
         },
-        // Productos de Adiciones (ACTUALIZADOS)
+        {
+            name: "Piña-Coco",
+            priceAgua: "$8.000 (Agua)",
+            priceLeche: "$9.000 (Leche)",
+            phrase: "El sabor del caribe en tu paladar.",
+            category: "jugos",
+            subcategory: "combinaciones"
+        },
+        {
+            name: "Piña-Yerbabuena",
+            priceAgua: "$8.000 (Agua)",
+            priceLeche: "$9.000 (Leche)",
+            phrase: "Refrescante y digestivo, ideal para cualquier momento.",
+            category: "jugos",
+            subcategory: "combinaciones"
+        },
+
+        // ADICIONES
         {
             name: "Carne desmechada",
             price: "$4.000",
@@ -299,20 +350,6 @@ document.addEventListener('DOMContentLoaded', function() {
             iconClass: "fas fa-hamburger" // Ícono de hamburguesa
         },
         {
-            name: "Tocineta",
-            price: "$3.000",
-            phrase: "Crujiente y deliciosa.",
-            category: "adiciones",
-            iconClass: "fas fa-bacon" // Ícono de tocino
-        },
-        {
-            name: "Queso",
-            price: "$3.000",
-            phrase: "El complemento perfecto.",
-            category: "adiciones",
-            iconClass: "fas fa-cheese" // Ícono de queso
-        },
-        {
             name: "Chorizo coctelero",
             price: "$800",
             phrase: "Pequeño pero con gran sabor.",
@@ -325,6 +362,43 @@ document.addEventListener('DOMContentLoaded', function() {
             phrase: "Un toque especial para tu plato.",
             category: "adiciones",
             iconClass: "fas fa-egg" // Ícono de huevo
+        },
+        {
+            name: "Queso",
+            price: "$3.000",
+            phrase: "El complemento perfecto.",
+            category: "adiciones",
+            iconClass: "fas fa-cheese" // Ícono de queso
+        },
+        {
+            name: "Tocineta",
+            price: "$3.000",
+            phrase: "Crujiente y deliciosa.",
+            category: "adiciones",
+            iconClass: "fas fa-bacon" // Ícono de tocino
+        },
+
+        // OTRAS BEBIDAS
+        {
+            name: "Botella",
+            price: "$35.000",
+            phrase: "Botella de bebida para compartir.",
+            category: "otras-bebidas",
+            iconClass: "fas fa-wine-bottle"
+        },
+        {
+            name: "Coctel Copa",
+            price: "$4.500",
+            phrase: "Refrescante cóctel en copa.",
+            category: "otras-bebidas",
+            iconClass: "fas fa-cocktail"
+        },
+        {
+            name: "Milo",
+            price: "$8.000",
+            phrase: "El clásico Milo que todos aman.",
+            category: "otras-bebidas",
+            iconClass: "fas fa-coffee"
         }
     ];
 
@@ -356,6 +430,12 @@ document.addEventListener('DOMContentLoaded', function() {
             name: "Adiciones",
             id: "adiciones",
             iconHtml: '<i class="fas fa-plus-circle fa-4x"></i>' // Puedes cambiar el icono
+        },
+        // Nueva categoría para Otras Bebidas
+        {
+            name: "Otras Bebidas",
+            id: "otras-bebidas",
+            iconHtml: '<i class="fas fa-glass-martini fa-4x"></i>'
         }
     ];
 
@@ -364,6 +444,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentMenuTitle = document.getElementById('current-menu-title');
     const mainSectionTitle = document.querySelector('.section-title');
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const homeBtn = document.getElementById('homeBtn');
     const adicionesButtonContainer = document.getElementById('adiciones-button-container');
     const showAdicionesBtn = document.getElementById('show-adiciones-btn');
     const headerElement = document.querySelector('header'); // Referencia al header
@@ -461,7 +543,21 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        addBackButton(showCategories, '← Volver a Categorías');
+        // Botón de Home (siempre visible)
+        const homeButton = document.createElement('button');
+        homeButton.innerHTML = '<i class="fas fa-home"></i> Inicio';
+        homeButton.classList.add('back-button');
+        homeButton.style.backgroundColor = '#4CAF50';
+        homeButton.addEventListener('click', () => {
+            showCategories();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        backButtonContainer.appendChild(homeButton);
+        backButtonContainer.style.display = 'flex';
+
     }
 
     // Función para mostrar productos (ya sea de categoría principal o subcategoría)
@@ -527,6 +623,21 @@ document.addEventListener('DOMContentLoaded', function() {
             adicionesButtonContainer.style.display = 'none';
         }
 
+        // Botón de Home (siempre visible)
+        const homeButton = document.createElement('button');
+        homeButton.innerHTML = '<i class="fas fa-home"></i> Inicio';
+        homeButton.classList.add('back-button');
+        homeButton.style.backgroundColor = '#4CAF50';
+        homeButton.addEventListener('click', () => {
+            showCategories();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        backButtonContainer.appendChild(homeButton);
+        backButtonContainer.style.display = 'flex';
+
         // Botón de regreso principal
         if (parentCategoryId) { // Si venimos de una subcategoría (ej: Jugos Tradicionales)
             const parentCat = categories.find(cat => cat.id === parentCategoryId);
@@ -535,9 +646,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     displaySubcategories(parentCat.id, parentCat.name, parentCat.subcategories);
                 }, `← Volver a Subcategorías de ${parentCat.name}`);
             }
-            addBackButton(showCategories, '← Volver a Categorías');
-        } else { // Si venimos de una categoría principal (ej: Comidas Rápidas o Adiciones)
-            addBackButton(showCategories, '← Volver a Categorías');
         }
     }
 
@@ -558,6 +666,33 @@ document.addEventListener('DOMContentLoaded', function() {
             top: 0,
             behavior: 'smooth'
         });
+    });
+
+    // Funcionalidad del botón de Home
+    homeBtn.addEventListener('click', function() {
+        showCategories();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Funcionalidad del botón de WhatsApp
+    whatsappBtn.addEventListener('click', function() {
+        const phoneNumber = '573218663932';
+        const message = 'Hola! Me gustaría hacer un pedido en Sabor Viral 🍔';
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+
+    // Hacer scroll automático a la parte superior cuando se actualiza la página
+    window.addEventListener('beforeunload', function() {
+        window.scrollTo(0, 0);
+    });
+
+    // También hacer scroll a la parte superior cuando se carga la página
+    window.addEventListener('load', function() {
+        window.scrollTo(0, 0);
     });
 
     // Bloqueo de clic derecho y atajos de teclado
